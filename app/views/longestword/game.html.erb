@@ -1,0 +1,17 @@
+<div class="container text-center padded">
+  <ul class="list-inline">
+    <% @grid.each do |letter| %>
+    <li class="list-inline-item"><%= letter.capitalize %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="container text-center padded">
+  <form action="/score" class="form-inline">
+    <label for="word" method="get" class="sr-only">Your word ?</label>
+    <input type="text" name="word" placeholder="your word ?" class="form-control">
+    <input type="hidden" name="start_time" value="<%= Time.now %>">
+    <input type="hidden" name="grid" value="<%= @grid %>">
+    <button type="submit" class="btn btn-primary text-center" id="btn-round"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+  </form>
+</div>
