@@ -3,12 +3,15 @@
   <p> Your word: <%= @word %></p>
   <p> Time Taken to answer: <%= @result[:time]  %></p>
   <p> Your score : <%= @result[:score]  %></p>
-  <% if @result[:message] = "not in the grid" %>
+  <% if @result[:message] == "not in the grid" %>
       <p class="btn btn-warning"> <%= @result[:message]  %></p>
-  <% elsif @result[:message] = "not an english word" %>
+  <% elsif @result[:message] == "not an english word" %>
     <p class="btn btn-danger"> <%= @result[:message]  %></p>
   <% else %>
       <p class="btn btn-success"> <%= @result[:message]  %></p>
   <% end %>
 </div>
 
+<div class="container text-center padded">
+  <%= link_to "try again", game_path, :class=>"btn btn-primary" %>
+</div>
